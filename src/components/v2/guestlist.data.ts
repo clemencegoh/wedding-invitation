@@ -19,7 +19,6 @@ interface expectedRes {
 export const GuestListContext = createContext({});
 
 export const guestList = async () => {
-  console.log("this gets called");
   const dynamicListRes = await fetch(
     BASE_URL +
       new URLSearchParams({

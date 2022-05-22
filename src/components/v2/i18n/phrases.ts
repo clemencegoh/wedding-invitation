@@ -5,7 +5,7 @@ const greeting2 = [
 ];
 const greeting3 = ["8 October 2022 ", ""];
 const greeting4 = [
-  "And we'd lose for you to join us there for our special day.",
+  "And we'd love for you to join us there for our special day.",
   "您的光临将是我们最大的荣幸",
 ];
 const pleaseRSVP = [

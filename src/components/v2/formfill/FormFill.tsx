@@ -39,7 +39,7 @@ export default function FormFill({}: Props) {
     fetch(
       BASE_URL +
         new URLSearchParams({
-          action: "RSVP",
+          action: "rsvp",
           name: family.members[0],
           going: "no",
           attending: "",
@@ -52,7 +52,7 @@ export default function FormFill({}: Props) {
     fetch(
       BASE_URL +
         new URLSearchParams({
-          action: "RSVP",
+          action: "rsvp",
           name: family.members[0],
           going: "yes",
           attending: attending.join(", "),

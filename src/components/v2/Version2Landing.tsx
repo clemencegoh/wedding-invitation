@@ -20,6 +20,8 @@ export default function Version2Landing() {
     return <InvitationCodeNotFound />;
   }
 
+  const fontSize = "17px";
+
   return (
     <Container
       maxWidth={false}
@@ -46,6 +48,7 @@ export default function Version2Landing() {
       <Container
         sx={{
           display: "grid",
+          padding: "0",
           gridTemplateColumns: "1fr 10fr 1fr",
           marginTop: "2rem",
         }}
@@ -58,20 +61,38 @@ export default function Version2Landing() {
             alignItems: "left",
           }}
         >
-          <Typography fontFamily={"Open Sans"} marginBottom={"1.5rem"}>
+          <Typography
+            fontStyle={"italic"}
+            fontFamily={"Open Sans"}
+            fontSize={fontSize}
+            marginBottom={"1.5rem"}
+          >
             {landingPhrases[language].greeting1} {family?.members[0]},
           </Typography>
-          <Typography fontFamily={"Open Sans"} marginBottom={"1rem"}>
+          <Typography
+            fontSize={fontSize}
+            fontFamily={"Open Sans"}
+            marginBottom={"1rem"}
+          >
             {landingPhrases[language].greeting2}
-            <Typography component="span" fontWeight={"bold"}>
+            <Typography
+              fontSize={fontSize}
+              component="span"
+              fontWeight={"bold"}
+            >
               {landingPhrases[language].greeting3}
             </Typography>
           </Typography>
 
-          <Typography fontFamily={"Open Sans"} marginBottom={"1rem"}>
+          <Typography
+            fontSize={fontSize}
+            fontFamily={"Open Sans"}
+            marginBottom={"1rem"}
+          >
             {landingPhrases[language].greeting4}
           </Typography>
           <Typography
+            fontSize={fontSize}
             fontFamily={"Open Sans"}
             fontStyle={"italic"}
             marginBottom={"4rem"}

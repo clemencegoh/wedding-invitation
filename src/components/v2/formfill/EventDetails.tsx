@@ -1,10 +1,10 @@
 import { Container, Typography, useMediaQuery } from "@mui/material";
-import React from "react";
 import { useFamily } from "../hooks/useFamily";
 import { formFillPhrases } from "../i18n/phrases";
 import OmniHeader from "../OmniHeader";
 import {
   bgPrimaryColor,
+  ctaPrimaryColor,
   textOffColor,
   textPrimaryColor,
 } from "../styleConstants";
@@ -37,18 +37,30 @@ export default function EventDetails({ attending }: Props) {
           display: "flex",
           flexFlow: "column",
           height: "100%",
-          padding: "0 2rem",
+          padding: "0 1em",
           alignItems: isMobile ? "flex-start" : "center",
           justifyContent: "center",
         }}
       >
-        <Typography fontFamily={"Open Sans"} marginBottom={"4rem"}>
-          {formFillPhrases[language].formConfirmation1 +
-            attending.join(", ") +
-            "."}
+        <Typography fontFamily={"Open Sans"} component={"span"}>
+          {formFillPhrases[language].formConfirmation1}
+        </Typography>
+        <Typography
+          fontFamily={"Open Sans"}
+          fontStyle={"italic"}
+          marginBottom={"3rem"}
+          component="span"
+          color={ctaPrimaryColor}
+        >
+          {attending.join(", ") + "."}
         </Typography>
 
-        <Typography fontFamily={"Open Sans"} marginBottom={"1rem"}>
+        <Typography
+          fontFamily={"Open Sans"}
+          marginBottom={"3rem"}
+          fontWeight={"bold"}
+          fontSize={"20px"}
+        >
           {formFillPhrases[language].formConfirmation2}
         </Typography>
         <Typography fontFamily={"Open Sans"} marginBottom={"1rem"}>
@@ -80,7 +92,7 @@ export default function EventDetails({ attending }: Props) {
           <Typography
             fontFamily={"Open Sans"}
             color={textOffColor}
-            fontSize={"12px"}
+            fontSize={"14px"}
             fontStyle={"italic"}
             paddingBottom="2rem"
           >

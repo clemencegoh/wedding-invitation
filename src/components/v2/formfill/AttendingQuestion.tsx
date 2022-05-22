@@ -84,7 +84,7 @@ export default function AttendingQuestion({ onEnd, onNext }: Props) {
             <Typography
               fontFamily={"Open Sans"}
               color={"white"}
-              fontSize={"12px"}
+              fontSize={"15px"}
               sx={{
                 textTransform: "none",
               }}
@@ -112,7 +112,7 @@ export default function AttendingQuestion({ onEnd, onNext }: Props) {
             <Typography
               fontFamily={"Open Sans"}
               color={"white"}
-              fontSize={"12px"}
+              fontSize={"15px"}
               sx={{
                 textTransform: "none",
               }}
