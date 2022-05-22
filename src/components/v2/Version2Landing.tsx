@@ -1,5 +1,4 @@
 import { Button, Container, Typography, useMediaQuery } from "@mui/material";
-import { useEffect, useState } from "react";
 import "./appv2.css";
 import {
   bgPrimaryColor,
@@ -14,9 +13,9 @@ import { useFamily } from "./hooks/useFamily";
 
 export default function Version2Landing() {
   const isMobile = useMediaQuery("(max-width:600px)");
-  const { family, language } = useFamily();
+  const { family, language, invitationCode } = useFamily();
 
-  if (!family) {
+  if (!invitationCode || !family) {
     return <InvitationCodeNotFound />;
   }
 
@@ -67,7 +66,7 @@ export default function Version2Landing() {
             fontSize={fontSize}
             marginBottom={"1.5rem"}
           >
-            {landingPhrases[language].greeting1} {family?.members[0]},
+            {landingPhrases[language].greeting1} {family?.address},
           </Typography>
           <Typography
             fontSize={fontSize}

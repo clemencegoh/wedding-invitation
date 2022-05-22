@@ -6,6 +6,7 @@ export function useFamily() {
   const { invitationCode } = useParams();
   const [family, setFamily] = useState<Family | undefined>();
   const [language, setLanguage] = useState<"english" | "chinese">("english");
+  const [loadingGuestlist, setLoadingGuestlist] = useState<boolean>(true);
   const guestList = useContext<GuestList>(GuestListContext);
 
   useEffect(() => {
@@ -16,8 +17,9 @@ export function useFamily() {
       const selectedFamily = guestList[invitationCode];
       setFamily(selectedFamily);
       setLanguage(selectedFamily.language);
+      setLoadingGuestlist(false);
     }
   }, [invitationCode, guestList]);
 
-  return { family, language };
+  return { family, language, invitationCode, loadingGuestlist };
 }

@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { BASE_URL } from "./apiConstants";
 
 export interface Family {
+  address: string;
   language: "english" | "chinese";
   members: Array<string>;
 }
@@ -14,6 +15,7 @@ interface expectedRes {
   code: string;
   language: "english" | "chinese";
   members: string[];
+  address: string;
 }
 
 export const GuestListContext = createContext({});
@@ -31,6 +33,7 @@ export const guestList = async () => {
     guestList[item.code] = {
       language: item.language,
       members: item.members,
+      address: item.address,
     };
   });
   return guestList;
