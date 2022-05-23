@@ -61,14 +61,14 @@ export default function AttendingQuestion({ onEnd, onNext }: Props) {
           style={{
             display: "flex",
             width: "100%",
-            justifyContent: "center",
+            justifyContent: "flex-start",
           }}
         >
           <Button
-            size={isMobile ? "small" : "large"}
+            fullWidth
+            size={isMobile ? "medium" : "large"}
             variant="contained"
             sx={{
-              minWidth: "35vw",
               backgroundColor: ctaPrimaryColor,
               "&.Mui-selected, &.Mui-selected:hover": {
                 backgroundColor: ctaPrimaryColor,
@@ -94,9 +94,9 @@ export default function AttendingQuestion({ onEnd, onNext }: Props) {
           </Button>
           <span style={{ margin: "0 0.5rem" }}></span>
           <Button
-            size={isMobile ? "small" : "large"}
+            fullWidth
+            size={isMobile ? "medium" : "large"}
             sx={{
-              minWidth: "35vw",
               backgroundColor: ctaPrimaryColor,
               "&.Mui-selected, &.Mui-selected:hover": {
                 backgroundColor: ctaPrimaryColor,

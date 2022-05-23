@@ -31,7 +31,7 @@ export default function EventDetails({ attending }: Props) {
         justifyContent: "space-between",
       }}
     >
-      <OmniHeader />
+      <OmniHeader positionCenter={true} />
       <Container
         sx={{
           display: "flex",

@@ -4,8 +4,7 @@ import {
   ctaSecondaryColor,
   warningColor,
 } from "../styleConstants";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { formFillPhrases } from "../i18n/phrases";
 import { useFamily } from "../hooks/useFamily";
 
@@ -46,21 +45,7 @@ export default function FormFooter({
           }}
           onClick={onPrev}
         >
-          <KeyboardArrowUpIcon />
-        </Button>
-        <Button
-          disabled={disableNext}
-          size="small"
-          sx={{
-            backgroundColor: ctaSecondaryColor,
-            color: "black",
-            "&:hover": {
-              backgroundColor: ctaSecondaryColor,
-            },
-          }}
-          onClick={onNext}
-        >
-          <KeyboardArrowDownIcon />
+          <KeyboardArrowLeftIcon />
         </Button>
       </div>
       <Button
@@ -78,7 +63,7 @@ export default function FormFooter({
         <Typography
           fontFamily={"Open Sans"}
           color={"white"}
-          fontSize={"14px"}
+          fontSize={"15px"}
           sx={{
             textTransform: "none",
           }}

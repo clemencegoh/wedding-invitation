@@ -7,7 +7,6 @@ import {
 import OmniHeader from "./OmniHeader";
 import oopsCloud from "./assets/oops_cloud.png";
 import { bgPrimaryColor, textPrimaryColor } from "./styleConstants";
-import { useParams } from "react-router-dom";
 import { useFamily } from "./hooks/useFamily";
 
 type Props = {};
@@ -53,7 +52,7 @@ export default function InvitationCodeNotFound({}: Props) {
         width: "100%",
       }}
     >
-      <OmniHeader />
+      <OmniHeader positionCenter={true} />
       <Container
         sx={{
           display: "flex",

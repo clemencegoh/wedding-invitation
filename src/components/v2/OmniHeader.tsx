@@ -1,9 +1,13 @@
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 
-type Props = {};
+type Props = {
+  positionCenter?: boolean;
+};
 
-export default function OmniHeader({}: Props) {
+export default function OmniHeader({ positionCenter }: Props) {
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   return (
     <Typography
       fontFamily={"Open Sans"}
@@ -11,7 +15,7 @@ export default function OmniHeader({}: Props) {
         position: "absolute",
         margin: "1em auto",
         left: 0,
-        right: 0,
+        right: positionCenter || isMobile ? 0 : 720,
         textAlign: "center",
         fontSize: "12px",
         fontStyle: "italic",

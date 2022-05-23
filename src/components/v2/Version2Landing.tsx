@@ -24,13 +24,13 @@ export default function Version2Landing() {
   return (
     <Container
       maxWidth={false}
+      disableGutters
       sx={{
         backgroundColor: bgPrimaryColor,
         color: textPrimaryColor,
         minHeight: "100vh",
         display: "flex",
         flexFlow: isMobile ? "column" : "row-reverse",
-        padding: "0",
         alignItems: "center",
       }}
     >
@@ -38,8 +38,9 @@ export default function Version2Landing() {
         style={{
           objectFit: "cover",
           objectPosition: "0 20%",
-          width: "100%",
-          maxHeight: isMobile ? "40vh" : "80vh",
+          maxWidth: isMobile ? "" : "100%",
+          width: isMobile ? "100%" : "",
+          height: isMobile ? "40vh" : "100vh",
         }}
         src={invitationLogo}
         alt="Clemence and Zhimin"
@@ -47,7 +48,6 @@ export default function Version2Landing() {
       <Container
         sx={{
           display: "grid",
-          padding: "0",
           gridTemplateColumns: "1fr 10fr 1fr",
           marginTop: "2rem",
         }}

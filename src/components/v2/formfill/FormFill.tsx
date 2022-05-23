@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../apiConstants";
 import { useFamily } from "../hooks/useFamily";
@@ -10,11 +10,13 @@ import DietQuestion from "./DietQuestion";
 import EventDetails from "./EventDetails";
 import PrematureEndForm from "./PrematureEndForm";
 import WhoAttendingQuestion from "./WhoAttendingQuestion";
+import invitationLogo from "../assets/invitation-cover-hd.jpg";
 
 type Props = {};
 
 export default function FormFill({}: Props) {
-  const { family } = useFamily();
+  const { family, invitationCode } = useFamily();
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const [step, setStep] = useState<number>(0);
   const [attending, setAttending] = useState<string[]>([]);
@@ -27,7 +29,7 @@ export default function FormFill({}: Props) {
     }
   }, [family]);
 
-  if (!family) {
+  if (!family || !invitationCode) {
     return <InvitationCodeNotFound />;
   }
 
@@ -40,7 +42,7 @@ export default function FormFill({}: Props) {
       BASE_URL +
         new URLSearchParams({
           action: "rsvp",
-          name: family.members[0],
+          name: invitationCode,
           going: "no",
           attending: "",
           diet: "",
@@ -53,7 +55,7 @@ export default function FormFill({}: Props) {
       BASE_URL +
         new URLSearchParams({
           action: "rsvp",
-          name: family.members[0],
+          name: invitationCode,
           going: "yes",
           attending: attending.join(", "),
           diet: dietRestriction,
@@ -71,7 +73,7 @@ export default function FormFill({}: Props) {
             onEnd={() => {
               // this is reject - still submit
               rejectInvitation();
-              stepNext(-1);
+              stepNext(4);
             }}
           />
         );
@@ -107,15 +109,37 @@ export default function FormFill({}: Props) {
   return (
     <Container
       maxWidth={false}
+      disableGutters
       sx={{
         backgroundColor: bgPrimaryColor,
         color: textPrimaryColor,
         minHeight: "100vh",
+        display: "flex",
       }}
     >
-      {step !== 3 && <OmniHeader />}
+      {step < 3 && <OmniHeader />}
 
-      {getFormfillStep()}
+      <Container
+        sx={{
+          margin: "auto",
+          maxWidth: "800px !important",
+        }}
+      >
+        {getFormfillStep()}
+      </Container>
+      {step < 3 && (
+        <img
+          style={{
+            objectFit: "cover",
+            objectPosition: "0 20%",
+            maxWidth: "100%",
+            display: isMobile ? "none" : "flex",
+            height: "100vh",
+          }}
+          src={invitationLogo}
+          alt="Clemence and Zhimin"
+        />
+      )}
     </Container>
   );
 }
